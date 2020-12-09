@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/broker_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.kits.brokerapp.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_prefactorFragment"
+            app:destination="@id/prefactorFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchBydateFragment"
+            app:destination="@id/searchBydateFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutusFragment"
+            app:destination="@id/aboutusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutusFragment"
+        android:name="com.kits.brokerapp.fragment.AboutusFragment"
+        android:label="fragment_aboutus"
+        tools:layout="@layout/fragment_aboutus" >
+        <action
+            android:id="@+id/action_aboutusFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.kits.brokerapp.fragment.BuyFragment"
+        android:label="fragment_buy"
+        tools:layout="@layout/fragment_buy" />
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.kits.brokerapp.fragment.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="com.kits.brokerapp.fragment.CustomerFragment"
+        android:label="fragment_customer"
+        tools:layout="@layout/fragment_customer" >
+        <action
+            android:id="@+id/action_customerFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kits.brokerapp.fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/prefactorFragment"
+        android:name="com.kits.brokerapp.fragment.PrefactorFragment"
+        android:label="fragment_prefactor"
+        tools:layout="@layout/fragment_prefactor" >
+        <action
+            android:id="@+id/action_prefactorFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_prefactorFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+        <action
+            android:id="@+id/action_prefactorFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.kits.brokerapp.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchBydateFragment"
+        android:name="com.kits.brokerapp.fragment.SearchBydateFragment"
+        android:label="fragment_search_bydate"
+        tools:layout="@layout/fragment_search_bydate" >
+        <action
+            android:id="@+id/action_searchBydateFragment_to_prefactorFragment"
+            app:destination="@id/prefactorFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "414381513384",
+    "firebase_url": "https://brokerapp-305b0.firebaseio.com",
+    "project_id": "brokerapp-305b0",
+    "storage_bucket": "brokerapp-305b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414381513384:android:93cca9a5c7e3785619c09d",
+        "android_client_info": {
+          "package_name": "com.kits.brokerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414381513384-ostc1p9uh7danb03en1jpnjepprbjhl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIIdEJH_pFF0JF5U8DJ6glpN9o8lAMhPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414381513384-ostc1p9uh7danb03en1jpnjepprbjhl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
