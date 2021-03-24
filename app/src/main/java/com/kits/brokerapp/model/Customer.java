@@ -1,8 +1,18 @@
 package com.kits.brokerapp.model;
 
+import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.databinding.BindingAdapter;
+
 import com.google.gson.annotations.SerializedName;
+import com.kits.brokerapp.R;
+
+import java.text.DecimalFormat;
 
 public class Customer {
+
+    private static final DecimalFormat decimalFormat = new DecimalFormat("0,000");
 
     @SerializedName("CustomerCode")
     private String CustomerCode;
@@ -57,8 +67,27 @@ public class Customer {
     private String KodeMelli;
 
 
+
+    @BindingAdapter({"android:TVBestankar"})
+    public static void loadCircleImageView(TextView TextView , String data){
+
+        if (Integer.parseInt(data)> -1) {
+            TextView.setText(Farsi_number.PerisanNumber(decimalFormat.format(Integer.parseInt(data))));
+            //TextView.setTextColor(ContextCompat.getColor(mContext, R.color.green_900));
+        } else {
+            int a = (Integer.parseInt(data) * (-1));
+            TextView.setText(Farsi_number.PerisanNumber(decimalFormat.format(a)));
+            //TextView.setTextColor(ContextCompat.getColor(, R.color.red_900));
+        }
+
+    }
+
+
+
+
+
     public String getCustomerCode() {
-        return CustomerCode;
+        return Farsi_number.PerisanNumber(CustomerCode);
     }
 
     public void setCustomerCode(String customerCode) {
@@ -66,7 +95,7 @@ public class Customer {
     }
 
     public String getPriceTip() {
-        return PriceTip;
+        return Farsi_number.PerisanNumber(PriceTip);
     }
 
     public void setPriceTip(String priceTip) {
@@ -74,7 +103,7 @@ public class Customer {
     }
 
     public String getCustomerName() {
-        return CustomerName;
+        return Farsi_number.PerisanNumber(CustomerName);
     }
 
     public void setCustomerName(String customerName) {
@@ -82,7 +111,7 @@ public class Customer {
     }
 
     public String getAddress() {
-        return Address;
+        return Farsi_number.PerisanNumber(Address);
     }
 
     public void setAddress(String address) {
@@ -90,7 +119,7 @@ public class Customer {
     }
 
     public String getManager() {
-        return Manager;
+        return Farsi_number.PerisanNumber(Manager);
     }
 
     public void setManager(String manager) {
@@ -98,7 +127,7 @@ public class Customer {
     }
 
     public String getMobile() {
-        return Mobile;
+        return Farsi_number.PerisanNumber(Mobile);
     }
 
     public void setMobile(String mobile) {
@@ -106,7 +135,7 @@ public class Customer {
     }
 
     public String getPhone() {
-        return Phone;
+        return Farsi_number.PerisanNumber(Phone);
     }
 
     public void setPhone(String phone) {
@@ -114,16 +143,14 @@ public class Customer {
     }
 
     public String getDelegacy() {
-        return Delegacy;
+        return Farsi_number.PerisanNumber(Delegacy);
     }
 
     public void setDelegacy(String delegacy) {
         Delegacy = delegacy;
     }
 
-    public String getCityName() {
-        return CityName;
-    }
+    public String getCityName() {return Farsi_number.PerisanNumber(CityName);}
 
     public void setCityName(String cityName) {
         CityName = cityName;
@@ -137,9 +164,7 @@ public class Customer {
         CityCode = cityCode;
     }
 
-    public String getBestankar() {
-        return Bestankar;
-    }
+    public String getBestankar() { return Bestankar; }
 
     public void setBestankar(String bestankar) {
         Bestankar = bestankar;

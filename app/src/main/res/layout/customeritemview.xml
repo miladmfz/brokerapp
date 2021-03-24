@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="Customer" type="com.kits.brokerapp.model.Customer"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/customeritemcard"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@string/size_margin_normal"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="6dp"
+        app:strokeColor="@color/grey_1000"
+        app:strokeWidth="@string/size_strokeWidth"
+        android:layoutDirection="rtl">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:baselineAligned="false">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="2dp"
+                    android:layout_weight="0.5"
+                    android:weightSum="0.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.25"
+                        android:gravity="center"
+                        android:text="@string/customer_code"
+                        android:textColor="@color/grey_900"
+                        android:textSize="@string/size_item_title"
+                        tools:ignore="NestedWeights"/>
+                    <TextView
+                        android:id="@+id/customer_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.25"
+                        android:text="@{Customer.customerCode}"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@string/size_item_body"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="2dp"
+                    android:layout_weight="0.5"
+                    android:weightSum="0.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.25"
+                        tools:ignore="NestedWeights"
+                        android:gravity="center"
+                        android:text="@string/customer_credite"
+                        android:textColor="@color/grey_900"
+                        android:textSize="@string/size_item_title"/>
+                    <TextView
+                        android:id="@+id/customer_bes"
+                        android:TVBestankar="@{Customer.bestankar}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.25"
+                        android:textSize="@string/size_item_body"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:text="@string/customerfactorheader"
+                    android:gravity="center"
+                    android:textColor="@color/grey_900"
+                    android:textSize="@string/size_item_title" />
+                <TextView
+                    android:id="@+id/customer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="@{Customer.customerName,default=` `}"
+                    android:textColor="@color/black"
+                    android:textSize="@string/size_item_body"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:gravity="center"
+                    android:text="@string/customer_manager"
+                    android:textColor="@color/grey_900"
+                    android:textSize="@string/size_item_title" />
+                <TextView
+                    android:id="@+id/customer_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="@{Customer.manager,default=` `}"
+                    android:textColor="@color/black"
+                    android:textSize="@string/size_item_body"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:gravity="center"
+                    android:text="@string/customer_phone"
+                    android:textColor="@color/grey_900"
+                    android:textSize="@string/size_item_title"/>
+                <TextView
+                    android:id="@+id/customer_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="@{Customer.phone,default=` `}"
+                    android:textColor="@color/black"
+                    android:textSize="@string/size_item_body"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:paddingTop="2dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:text="@string/customer_addres"
+                    android:gravity="center"
+                    android:textColor="@color/grey_900"
+                    android:textSize="@string/size_item_title" />
+                <TextView
+                    android:id="@+id/customer_addres"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="@{Customer.address,default=` `}"
+                    android:textColor="@color/black"
+                    android:textSize="@string/size_item_body"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

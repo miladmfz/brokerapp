@@ -1,6 +1,7 @@
 package com.kits.brokerapp.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.kits.brokerapp.room.Good;
 
 import java.util.ArrayList;
 
@@ -8,18 +9,10 @@ import java.util.ArrayList;
 public class GoodResponse {
 
     @SerializedName("Goods")
-
     private ArrayList<Good> Goods;
 
     @SerializedName("Customers")
-
     private ArrayList<Customer> Customers;
-
-
-
-
-
-
 
 
     public ArrayList<Good> getGoods() {

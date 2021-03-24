@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.kits.brokerapp.application.MyApplication;
+
 public class Get_Shared {
     Context mContext;
     private SharedPreferences shPref;
@@ -12,8 +14,8 @@ public class Get_Shared {
 
 
     @SuppressLint("CommitPrefEdits")
-    public Get_Shared(Context context) {
-        shPref = context.getSharedPreferences("BrokerShared", Context.MODE_PRIVATE);
+    public Get_Shared() {
+        shPref = MyApplication.getContext().getSharedPreferences("BrokerShared", Context.MODE_PRIVATE);
         sEdit = shPref.edit();
 
     }
@@ -34,6 +36,7 @@ public class Get_Shared {
 
     public void Create(){
         sEdit.putBoolean("firstStart", false);
+        Edit_SH("ItemsShow","3");
         sEdit.apply();
     }
 

@@ -2,65 +2,73 @@ package com.kits.brokerapp.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.kits.brokerapp.R;
+import com.kits.brokerapp.adapter.CustomerItemAdapter;
+import com.kits.brokerapp.databinding.FragmentCustomerBinding;
+import com.kits.brokerapp.model.Customer;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CustomerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CustomerFragment extends Fragment {
+import com.kits.brokerapp.viewmodel.ViewModelCustomer;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+public abstract class CustomerFragment extends Fragment{
+
+    FragmentCustomerBinding binding;
+    RecyclerView recyclerView;
+    CustomerItemAdapter adapterCustomer;
+
+    Boolean edit=false;
 
     public CustomerFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CustomerFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CustomerFragment newInstance(String param1, String param2) {
-        CustomerFragment fragment = new CustomerFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_customer, container, false);
+        recyclerView = binding.customerfragmentRecycler;
+        return binding.getRoot();
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_customer, container, false);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ViewModelCustomer viewModelCustomer = new ViewModelProvider(requireActivity()).get(ViewModelCustomer.class);
+        MutableLiveData<List<Customer>> listMutableLiveData = viewModelCustomer.getListMutableLiveData();
+
+
+        listMutableLiveData.observe(requireActivity(), new Observer<List<Customer>>() {
+            @Override
+            public void onChanged(List<Customer> Customers) {
+
+                int factor_target=1;
+                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2 , StaggeredGridLayoutManager.VERTICAL));
+                recyclerView.setHasFixedSize(true);
+                adapterCustomer = new CustomerItemAdapter(getActivity(), Customers, edit,factor_target);
+                recyclerView.setAdapter(adapterCustomer);
+
+            }
+        });
+
+
+
+
     }
+
 }

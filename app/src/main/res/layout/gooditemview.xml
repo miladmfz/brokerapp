@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="Good" type="com.kits.brokerapp.model.Good"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gooditemcard"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_margin="5dp"
+
+        android:checkable="true"
+        android:layoutDirection="rtl">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/gooditemimage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="2dp"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:id="@+id/gooditemname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="2dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey_1000"
+                   />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:id="@+id/gooditemamount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="0.5"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue_grey_900"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/gooditemmaxprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/red_900"
+                    android:textSize="16sp"
+                    android:layout_weight="0.5" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/gooditemexplain1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/red_900"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/gooditembtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:text="@string/detail_buy" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
